@@ -7,7 +7,8 @@ class Die:
         self._value = 0
 
     def roll(self):
-        self.value = random.randint(1, self._sides)
+        self._value = random.randint(1, self._sides)
+        return self._value
 
     def __str__(self):
         return str(self._value)

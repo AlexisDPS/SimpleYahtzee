@@ -4,7 +4,6 @@
 # Lab Assignment 1 - Description
 
 import check_input
-import die
 import player
 
 def take_turn(player):
@@ -23,6 +22,15 @@ def take_turn(player):
 
 def main():
     print("-Yahtzee-")
+    current_player = player.Player()
+    playing_game = True
+    while playing_game:
+        take_turn(current_player)
+        play_again = check_input.get_yes_no("Play again? (Y/N): ")
+        if not play_again:
+            playing_game = False
+    print("Game Over.")
+    print(f"Final Score = {current_player.points}")
 
 if __name__ == "__main__":
     main()
