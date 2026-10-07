@@ -1,7 +1,12 @@
 # Group 10
 # Alexis De Paz Salazar
 # Broden Black
-# Lab Assignment 1 - Description
+# A similar game to Yahtzee that uses 3 die instead of the regular 5. 
+# The player rolls the die and they can land in a pair, series, or three of a kind. 
+# Each give the player 1, 2, or 3 points respectively. If none of these are rolled then
+# the player doesn't get any points. The player can choose to play again or quit the game.
+# Every roll is random and the score is displayed after each turn. Once the player
+# chooses to quit the game, the final score is displayed.
 
 import check_input
 import player
@@ -40,11 +45,13 @@ def main():
     playing_game = True  # Sets the playing_game variable to True for the game loop
 
     while playing_game:  # Loops the game until the player chooses to stop
+        print()
         take_turn(current_player)  # Calls the take_turn function to roll the dice and check for points
         play_again = check_input.get_yes_no("Play again? (Y/N): ")  # Ask the player if they want to play again
         if not play_again:  # If the player does not want to play again, ends the loop with playing_game set to False
             playing_game = False
 
+    print()
     print("Game Over.")  # Prints that the game is over
     print(f"Final Score = {current_player.points}")  # Prints the player's final score
 
